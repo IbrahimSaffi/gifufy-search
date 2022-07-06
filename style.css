@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Open+Sans:ital@1&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body *{
+    font-family: 'Fugaz One', cursive;
+    /* font-family: 'Open Sans', sans-serif; */
+}
+.top-bar {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+}
+.top-bar img {
+   height: 10vh;
+}
+button {
+    background-color: inherit;
+    height: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    min-width: 150px;
+    cursor: pointer;
+}
+.active{
+    background-color:rgb(168, 226, 182);
+
+}
+.search-section {
+    height: 87vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20vh;
+    background-image: url(./images/background.gif);
+    background-size:cover;
+    background-position: 20px;
+    color: white;
+}
+ .search-section *{
+    margin-bottom: 50px;
+} 
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    height: 20px;
+  width: 90%;
+  height: 10%;
+  /* position: relative; */
+  align-items: center;
+  margin-left: 24vw;
+}
+.search-bar img {
+    height: 120%;
+    /* position: absolute; */
+    /* z-index: 1; */
+    /* left: 5px; */
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+.search-bar input {
+    width: 70%;
+    height: 120%;
+    border: none;
+}
+.searched-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+.items {
+    padding: 5px;
+}
