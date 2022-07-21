@@ -35,12 +35,11 @@ function start() {
   });
 }
 function trending(type){
-  document.querySelector("#loading-container").style.display= "flex"
-  document
-  .querySelector("#loading-container")
-  .scrollIntoView({ behavior: "smooth" })
-  document
-   fetch(`https://api.giphy.com/v1/${type}/trending?api_key=${apiKey}&limit=25`)
+      document.querySelector("#loading-container").style.display= "flex"
+      document
+      .querySelector("#loading-container")
+      .scrollIntoView({ behavior: "smooth" })
+   fetch(`https://api.giphy.com/v1/${type}/trending?api_key=${apiKey}&limit=25&rating=g`)
    .then((response)=>response.json())
    .then((data)=>data["data"].forEach(ele=>displayImages(ele)))
    setTimeout(()=>{
@@ -70,7 +69,9 @@ async function simpleSearch(type) {
       document.querySelector("#loading-container").style.display="none"
        errDis.style.display = "flex"
        document.querySelector(".error-text").textContent=error
+       document.querySelector(".search-section").style.filter = "brightness(60%);"
        rem.addEventListener("click",()=>{
+        document.querySelector(".search-section").style.filter = "brightness(100%)"
         errDis.style.display = "none"
      })
     });
@@ -88,7 +89,9 @@ async function wordToGif(type) {
         document.querySelector("#loading-container").style.display="none"
          errDis.style.display = "flex"
          document.querySelector(".error-text").textContent=error
+        document.querySelector(".search-section").style.filter = "brightness(40%)" 
          rem.addEventListener("click",()=>{
+          document.querySelector(".search-section").style.filter = "brightness(100%)"
           errDis.style.display = "none"
        })
       });
@@ -100,19 +103,23 @@ async function fetchCall() {
   document.querySelectorAll(".items").forEach((ele) => {
     ele.remove();
   });
-  document.querySelector("#loading-container").style.display= "flex"
-  document
-  .querySelector("#loading-container")
-  .scrollIntoView({ behavior: "smooth" })
+  if(q.value.length>0||!activeStatus[0].textContent.includes("Word to Gif")){
+    document.querySelector("#loading-container").style.display= "flex"
+    document
+    .querySelector("#loading-container")
+    .scrollIntoView({ behavior: "smooth" })
+    
+  }
   document
   .querySelector("#items-section").style.display = "none"
   let activeStatus = document.querySelectorAll(".active");
+  
   let itemType = "stickers";
   if (activeStatus[1].textContent.includes("GIFs")) {
     itemType = "gifs";
   }
   if (activeStatus[0].textContent.includes("Word to Gif")) {
-  await wordToGif(itemType)
+      await wordToGif(itemType)
   } else {
     await simpleSearch(itemType)
   }

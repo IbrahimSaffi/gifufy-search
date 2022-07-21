@@ -45,6 +45,7 @@ button {
     padding: 20vh;
     position: relative;
     color: white;
+    /* filter: brightness(100%); */
 }
 
 .background {
@@ -133,6 +134,16 @@ button {
     align-items: center;
     color: white;
     display: none;
+    animation-name: fade-in ;
+    animation-duration: 0.5s;
+}
+@keyframes fade-in {
+     0% {
+        opacity: 0;
+     }
+     100% {
+        opacity: 100%;
+     }
 }
 .rem {
     position: absolute;
