@@ -87,7 +87,7 @@ async function wordToGif(type) {
         displayImages(data["data"]);
       }).catch(error=>{
         document.querySelector("#loading-container").style.display="none"
-         errDis.style.display = "flex"
+        //  errDis.style.display = "flex"
          document.querySelector(".error-text").textContent=error
         document.querySelector(".search-section").style.filter = "brightness(40%)" 
          rem.addEventListener("click",()=>{
